@@ -3,3 +3,5 @@
 CS345 Database Systems
 
 Fall 2023
+
+Anupama Sanjith (Lupi)
