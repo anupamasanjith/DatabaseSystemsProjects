@@ -1,0 +1,72 @@
+-- Part 2
+
+DROP DATABASE IF EXISTS asanj19_insurance;
+CREATE DATABASE asanj19_insurance;
+\c asanj19_insurance
+
+-- 3.13
+-- creating SQL DDL corresponding to given schema 
+-- creating table person with driver_id as primary key 
+
+CREATE TABLE person
+(driver_id VARCHAR(40) Not NULL , 
+name VARCHAR(30), 
+address VARCHAR(50), 
+PRIMARY KEY (dirver_id));
+
+-- creating table car with license_plate as primary key 
+
+CREATE TABLE car
+(license_plate VARCHAR(15)  Not NULL, 
+model VARCHAR(30), 
+year INT, 
+PRIMARY KEY (license_plate));
+
+-- creating table accident with report_number as primary key 
+
+CREATE TABLE accident
+(report_number VARCHAR(30)  Not NULL, 
+year INT, 
+location VARCHAR(50), 
+PRIMARY KEY (report_number));
+
+-- creating table owns with driver id and license plate  as primary key 
+
+CREATE TABLE owns
+(driver_id VARCHAR(40)  Not NULL, 
+license_plate VARCHAR(15)  Not NULL, 
+PRIMARY KEY (driver_id, license_plate));
+
+-- creating table participated with report number and license plate as primary key 
+
+CREATE TABLE participated
+(report_number VARCHAR(30)  Not NULL, 
+license_plate VARCHAR(15)  Not NULL, 
+driver_id VARCHAR(40), damage_amount INT, 
+PRIMARY KEY (report_number, license_plate));
+
+
+-- 3.14 
+
+-- Part a 
+
+-- number of accidents of car of person John smith
+
+SELECT count(report_number)
+FROM accident
+WHERE report_number in (SELECT report_number 
+                        FROM participated
+                        WHERE driver_id in (SELECT driver_id 
+                                            FROM person
+                                            WHERE name= ‘John Smith’));
+
+
+-- Part b 
+
+-- update damage amount for car with given license number and report number 
+
+UPDATE participated
+SET damage_amount = 3000
+WHERE license_plate = ‘AABB2000’
+AND report_number = ‘AR2197’;
+
