@@ -1,8 +1,12 @@
 -- Part 1 HW 3
 
+-- Ed: There is a syntax error below. I fixed by adding another dash.
+-- In fact the whole file is loaded with syntax errors on bad
+-- comment delimiters.
+
 -- 3.11
 -- Part a
-— selecting student id number and name of students that take at least 1 computer science course
+-- selecting student id number and name of students that take at least 1 computer science course
 
 SELECT 
      distinct student.name, student.id 
