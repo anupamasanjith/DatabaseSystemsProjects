@@ -4,6 +4,8 @@
 -- row contains (actor name,movie title. release year,director, and character name
 -- ordered by last name, release year.
 
+
+-- Ed: Good, but use natural join or join syntax for clarity. -1
 SELECT
     actors.firstname,actors.lastname,
     movies.title,movies.releaseyear,movies.director,
@@ -21,6 +23,7 @@ ORDER BY
 -- Query that displays names of the actors who have acted in most number of movies
 -- output schema (lastname,actorid,count)
 
+-- Ed: Nice. Same comment about join syntax for brevity and clarity. -1
 SELECT
     lastname,actorid,count
 FROM(SELECT
@@ -61,10 +64,6 @@ WHERE
                   GROUP BY
                       lastname,actorid) as subtwo);
 
-
-
-
-\
 
 
 

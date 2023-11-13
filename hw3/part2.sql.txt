@@ -17,6 +17,8 @@ CREATE TABLE
            address VARCHAR(50), 
            PRIMARY KEY (dirver_id));
 
+-- Ed: Syntax errors above, mispelled "driver"
+
 -- creating table car with license_plate as primary key 
 
 CREATE TABLE 
